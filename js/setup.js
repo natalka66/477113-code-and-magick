@@ -6,10 +6,6 @@ var WIZARD_COAT_COLOR = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 10
 var WIZARD_EYESCOLOR = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_FIRE_BOLL = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var showUserDialog = function () {
-  var userDialog = document.querySelector('.setup');
-  userDialog.classList.remove('hidden');
-};
 
 var createWizardSettings = function () {
   var wizard = {
@@ -128,7 +124,6 @@ var addChangingFireBollOnClick = function () {
 var start = function () {
   var wizards = createWizardArray();
   showSimilarWizards();
-  // showUserDialog();
   renderAllWizards(wizards);
   addChangingCoatColarOnClick();
   addChangingEyesColarOnClick();
