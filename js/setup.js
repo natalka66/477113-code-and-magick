@@ -65,6 +65,9 @@ var makeClick = function () {
   var setupClose = document.querySelector('.setup-close');
   setupClose.addEventListener('click', function () {
     setup.classList.add('hidden');
+    var form = document.querySelector('.setup');
+    form.style.top = '';
+    form.style.left = '';
   });
 };
 
