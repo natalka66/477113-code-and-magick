@@ -12,11 +12,17 @@
     });
     var setupClose = document.querySelector('.setup-close');
     setupClose.addEventListener('click', function () {
-      setup.classList.add('hidden');
-      var form = document.querySelector('.setup');
-      form.style.top = '';
-      form.style.left = '';
+      window.closeForm();
     });
+  };
+
+  // функция закрытия окна
+  window.closeForm = function () {
+    var setup = document.querySelector('.setup');
+    setup.classList.add('hidden');
+    var form = document.querySelector('.setup');
+    form.style.top = '';
+    form.style.left = '';
   };
 
   // функция по нажатию клавиши enter открывает окно

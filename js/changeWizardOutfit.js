@@ -34,9 +34,38 @@
       fireBollColorInput.value = newWizardFireBallColor;
     });
   };
+  // функция отправки данных на сервер, когда я изменила своего волшебника
+  var sendMyWizard = function () {
+    var wizardForm = document.querySelector('.setup-wizard-form');
+    wizardForm.addEventListener('submit', function (evt) {
+      evt.preventDefault();
+      var formData = new FormData();
+      var inputUserName = document.querySelector('.setup-user-name');
+      var userName = inputUserName.value;
+      var inputWizardCoat = document.querySelector('.coat-color-input');
+      var coatColor = inputWizardCoat.value;
+      var inputWizardEyes = document.querySelector('.eye-color-input');
+      var eyesColor = inputWizardEyes.value;
+      var fireBollColorInput = document.querySelector('.fireball-color-input');
+      var fireballColor = fireBollColorInput.value;
+      formData.append('username', userName);
+      formData.append('coat-color', coatColor);
+      formData.append('eyes-color', eyesColor);
+      formData.append('fireball-color', fireballColor);
+      window.backend.save(formData, function () {
+        window.closeForm();
+      }, function (error) {
+        var div = document.createElement('div');
+        div.textContent = error;
+        wizardForm.appendChild(div);
+      });
+    });
+  };
+
   window.initializeWizardOutfit = function () {
     addChangingCoatColarOnClick();
     addChangingEyesColarOnClick();
     addChangingFireBollOnClick();
+    sendMyWizard();
   };
 })();
